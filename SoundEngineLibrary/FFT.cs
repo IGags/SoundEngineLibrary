@@ -6,7 +6,7 @@ using NAudio.Wave;
 
 namespace SoundEngineLibrary
 {
-    internal class FFT //TODO: сделать мод записи и чтения детекшена, написать тесты
+    public class FFT
     {
         public int HighEdge { get; set; } = 2;
         public int LowEdge { get; set; } = 1;

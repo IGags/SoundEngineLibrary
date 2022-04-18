@@ -9,7 +9,7 @@ namespace SoundEngineLibrary
         DoesntExist
     }
 
-    internal class SoundEngineTread
+    public class SoundEngineTread
     {
         public Mp3FileReader CurrentTrack { get; private set; }
         public string FullFilePath { get; private set; }
@@ -35,6 +35,12 @@ namespace SoundEngineLibrary
             OutputDevice.Init(CurrentTrack);
             OutputDevice.Play();
             MaxSongDuration = CurrentTrack.TotalTime;
+        }
+
+        public SoundEngineTread(string fullPath, ThreadOptions treadType, FFTExistance existence, int soundPower, int maxPower) 
+            : this(fullPath, treadType, existence)
+        {
+            ChangeVolume(soundPower, maxPower);
         }
 
         /// <summary>
